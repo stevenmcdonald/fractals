@@ -1,0 +1,16 @@
+{
+	"undef": true,
+	"unused": true,
+	"predef": [
+		"self",
+		"console",
+		"document",
+		"window",
+		"Worker",
+		"Uint8Array",
+		"Uint16Array",
+		"Uint32Array",
+		"setTimeout",
+		"angular"
+	]
+}

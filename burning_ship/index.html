@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Burning Ship Fractal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <style>
+    #canvas-container {
+      /*background: black;*/
+      margin: 0;
+    }
+
+    .spacer {
+      height: 2em;
+    }
+
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js"></script>
+  <script src="burningShipWorker.js"></script>
+  <script src="burningShip.js"></script>
+  <script src="burningShipApp.js"></script>
+</head>
+<body ng-app="BurningShipApp">
+  <div class="container" ng-controller="BurningShipCtrl">
+    <div class="row">
+      <h1>Burning Ship Fractal</h1>
+    </div>
+
+    <div class="row">
+      <div id="canvas-container">
+        <canvas id="fractal-canvas" height="1000" width="1000"></canvas>
+      </div>
+    </div>
+    <div class="row spacer">
+      <!-- <pre>
+center_range_select: {{ center_range_select| json }}
+center: {{ center | json }}
+range: {{ range | json }}
+ships: {{ ships | json }}
+      </pre> -->
+    </div>
+
+    <div class="row">
+      <div class="well">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <div class="col-xs-5">
+
+              <!-- iterations -->
+              <div class="form-group">
+                <label class="col-xs-4" for="itr">Iterations</label>
+                <div class="col-xs-4">
+                  <input id="itr" type="number" min="0" max="20000" class="form-control" ng-model="itr">
+                </div>
+              </div>
+
+              <!-- button(s) -->
+              <div class="form-group">
+                <div class="col-xs-5">
+                  <button type="submit" class="btn btn-primary" ng-click="start()">Draw</button>
+                  <button type="button" class="btn btn-success" id="save-image">Save Image<button>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-xs-5">
+
+              <!-- ship type -->
+              <div class="form-group">
+                <label class="col-xs-4" for="ship-type">Ship Presets:</label>
+                <div class="col-xs-5">
+                  <select id="ship-type"
+                          class="form-control"
+                          ng-options="item.val as item.text for item in ships"
+                          ng-model="center_range_select">
+                  </select>
+                </div>
+              </div>
+
+              <!-- center / range -->
+              <div class="form-group">
+                <label class="col-xs-4" for="center-x">Center X:</label>
+                <div class="col-xs-5">
+                  <input id="center-x" type="number" min="0" max="3" step="0.00001" class="form-control" ng-model="center.x">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-xs-4" for="center-y">Center Y:</label>
+                <div class="col-xs-5">
+                  <input id="center-y" type="number" min="0" max="3" step="0.00001" class="form-control" ng-model="center.y">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-4" for="range">Range:</label>
+                <div class="col-xs-5">
+                  <input id="range" type="number" min="0" max="3" step="0.00001" class="form-control" ng-model="range">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
