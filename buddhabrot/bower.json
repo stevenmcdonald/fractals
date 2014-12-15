@@ -1,0 +1,21 @@
+{
+  "name": "buddhabrot",
+  "version": "0.0.0",
+  "authors": [
+    "Steven McDonald <steven.mcdonald@gmail.com>"
+  ],
+  "description": "Buddhabrot",
+  "main": "buddha.js",
+  "homepage": "http://stevenmcdonald.github.com/fractals/buddhabrot/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "progressbar.js": "~0.6.0"
+  }
+}
