@@ -36,7 +36,6 @@ BurningShipApp.controller('BurningShipCtrl', function($scope) {
 	            },
 	            range: 0.04
 	        }
-            // range: 0.004,
         },
         {
             text: 'Tiny ship 1',
