@@ -157,7 +157,7 @@
 
         var saveButton = document.getElementById('save-image');
         saveButton.addEventListener('click', function() {
-            var dataURL = document.getElementById('fractal-canvas').toDataURL("image/png");
+            var dataURL = document.getElementById('buddhabrot-canvas').toDataURL("image/png");
             var timestamp = new Date().getTime();
             saveButton.href = dataURL;
             saveButton.download = 'buddha-'+timestamp+'.png';
