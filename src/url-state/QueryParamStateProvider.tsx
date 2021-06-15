@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import { History, createBrowserHistory } from 'history';
+import { createBrowserHistory } from 'history';
 
 import QueryParamState from './QueryParamState';
 
@@ -10,12 +10,12 @@ import { QueryParamContext } from './context';
 const state = new QueryParamState();
 
 interface IProps {
-  children: React.ReactChildren;
+  children: React.ReactNode;
 }
 
 const QueryParamStateProvider: React.FC<IProps> = ({children}: IProps) => {
   const history = createBrowserHistory();
-  const [urlString, setUrlString] = React.useState(history.location);
+  // const [urlString, setUrlString] = React.useState(history.location);
 
   console.log('blah', history.location, history.location.toString());
 

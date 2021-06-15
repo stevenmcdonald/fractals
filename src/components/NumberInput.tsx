@@ -5,12 +5,10 @@
 
 import React from 'react';
 
-import { debounce } from 'debounce';
-
 interface IProps {
   label: string;
   value: number;
-  onChange: Function;
+  onChange: (arg: number) => void;
 }
 
 const NumberInput: React.FC<IProps> = ({label, value, onChange}) => {

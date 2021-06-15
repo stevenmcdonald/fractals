@@ -1,21 +1,15 @@
 
-import { History } from 'history';
-
 type Callback = (v: string) => any;
-
-interface IQueryParamState {
-  history: History;
-}
 
 export default class QueryParamState {
   private listeners: {[key: string]: Callback } = {};
   private state: {[key: string]: string} = {};
-  private history: History;
+  private history: typeof window.history;
 
-  constructor(args: IQueryParamState) {
+  constructor() {
     console.log('QuertParamState created');
 
-    this.history = history;
+    this.history = window.history;
   }
 
   public setState(search: string) {

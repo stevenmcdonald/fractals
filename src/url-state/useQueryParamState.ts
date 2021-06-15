@@ -2,7 +2,7 @@
 import React from 'react';
 
 import QueryParamState from './QueryParamState';
-import QueryParamStateProvider from './QueryParamStateProvider';
+// import QueryParamStateProvider from './QueryParamStateProvider';
 import { QueryParamContext } from './context';
 
 export const useQueryParamState = (
@@ -19,15 +19,15 @@ export const useQueryParamState = (
     stateSetValue(newValue);
   };
 
-  const convertAndSet = (newValue: any) => {
-    stateSetValue(convert(newValue));
-  };
-
   React.useEffect(() => {
+    const convertAndSet = (newValue: any) => {
+      stateSetValue(convert(newValue));
+    };
+
     const unlisten = paramState.addListener(id, convertAndSet, value);
 
     return unlisten;
-  }, [paramState]);
+  }, [convert, paramState, id, value]);
 
   return [value, setValue];
 };
