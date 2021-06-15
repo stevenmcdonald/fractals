@@ -1,11 +1,6 @@
 
 import React from 'react';
-import worker from '../fractals/mandelbrot/worker/worker_shim';
 import Mandelbrot from '../fractals/mandelbrot/mandelbrot';
-
-import { debounce } from 'debounce';
-
-import { PromiseStatus, WorkerPool } from '../util';
 
 import { useQueryParamState } from '../url-state';
 
@@ -217,7 +212,7 @@ const Mandel: React.FC<IProps> = ({height, width, drawColors, canvasRef}: IProps
 
         }}>Debug!</button>
       </div>
-      <div>
+      <div className={styles.controls}>
         <form onSubmit={start}>
           <NumberInput label="Center X:" value={centerX} onChange={setCenterX} />
           <NumberInput label="Center Y:" value={centerY} onChange={setCenterY} />
