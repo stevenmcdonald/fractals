@@ -5,7 +5,6 @@ import Canvas from './Canvas';
 
 import styles from '../styles/Fractals.module.css';
 
-
 const Fractals: React.FC = () => {
   return (
     <div className={styles.container}>
@@ -20,6 +19,6 @@ const Fractals: React.FC = () => {
       </footer>
     </div>
   );
-}
+};
 
 export default Fractals;
